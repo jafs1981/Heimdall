@@ -1,23 +1,33 @@
 from fastapi import FastAPI
-from .routers import sample, employee, knowledge_source, knowledge_source_type, role, skill_component
+from .routers import sample, application
 from starlette.middleware.cors import CORSMiddleware
-from . import models
 from .database import SessionLocal, engine
+from starlette.requests import Request
+from starlette.responses import Response
 
-
-models.Base.metadata.create_all(bind=engine)
 
 # -----------------------------------------------------------------------------
 # APPLICATION OBJECT
 # -----------------------------------------------------------------------------
 app = FastAPI(
-    title="Files Microservice",
-    description="File management microservice",
+    title="Heimdall Identity Server API",
+    description="An identity management microservice written in Python and Cloud Native",
     version="1.0.0",
-    openapi_url="/file_management/v1/openapi.json",
-    docs_url="/file_management/v1/swagger",
-    redoc_url="/file_management/v1/docs"
+    openapi_url="/api/openapi.json",
+    docs_url="/api/docs",
+    redoc_url=None
 )
+
+
+@app.middleware("http")
+async def db_session_middleware(request: Request, call_next):
+    response = Response("Cannot establish connection with persistence provider", status_code=500)
+    try:
+        request.state.db = SessionLocal()
+        response = await call_next(request)
+    finally:
+        request.state.db.close()
+    return response
 
 
 # -----------------------------------------------------------------------------
@@ -38,6 +48,7 @@ app.add_middleware(
 # -----------------------------------------------------------------------------
 # ADD ROUTERS
 # -----------------------------------------------------------------------------
-app.include_router(sample.router, prefix="/file_management/v1")
+app.include_router(sample.router, prefix="/api/v1")
+app.include_router(application.router, prefix="/api/v1")
 
 

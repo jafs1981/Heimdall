@@ -6,7 +6,7 @@ router = APIRouter()
 # ---------------------------------------------------------------------------------------
 # GET SAMPLE
 # ---------------------------------------------------------------------------------------
-@router.get("/sample}", tags=["sample"])
-async def get_skill():
+@router.get("/sample", tags=["v1"])
+async def get_sample():
     return {"msg": "hello"}
 
