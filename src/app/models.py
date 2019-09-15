@@ -38,6 +38,7 @@ class IsxApplication(Base):
 # ISX CLAIMS PROVIDER
 # -----------------------------------------------------------------------------
 class IsxClaimsProvider(Base):
+    
     __tablename__ = 'isx_claims_provider'
 
     provider_id = Column(UUID, primary_key=True)
