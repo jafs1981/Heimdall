@@ -4,6 +4,10 @@ from starlette.middleware.cors import CORSMiddleware
 from .database import SessionLocal, engine
 from starlette.requests import Request
 from starlette.responses import Response
+from . import models
+
+
+models.Base.metadata.create_all(bind=engine)
 
 
 # -----------------------------------------------------------------------------
