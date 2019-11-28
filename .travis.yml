@@ -14,6 +14,12 @@ branches:
 install:
   - pip install -r requirements.txt
 
+addons:
+  sonarcloud:
+    organization: "hackydojo"
+    token:
+      secure: "XXWVZMe0UwLrRSV2g2yqw5nAjSNa8VyA3AT7D9IXegxZnDjfguHmIX1GoMEPCg4wtgBZCf+jUcM6qlb4OJYEa3vw6DBdb22SfL1w9Wf3ZOc36s6r5eCpPCl5as2L05MwNxqi9yiDY4khlX2swkfW1nCWemWnsXBrew67ZW9jCU6+0XJCotZARasD897cWG6jw4AAR1EMoQBH9AcB4GknNKvyjcbIJFWqeEh7uweM+X/uc4eLph9xGRutzPHDQapf5K863BpW54ReRvT4U8nCYy1uvVJhLCA8wNjPeXERSzDtBC1xfN/zY7L9jwLx6ILQwr/zD4voTzRClS/a2Kzxyj9xMLGWAb8oQgBudYqBks75AnEq+FByehdh3+7rJwmrmu1Gm4XMGF6aLEcrZ9Z71zolpOaWQpE47vXAeEZt5w77CKUIDTBHM1WwCaV0ln4Gyv1z43keIBRH4kN8wJwHjvL+LptQ9ugiioy2I+iA2PsDjT5eGscTY1a7OJsksrUnoLgpG8NFmFBDYhKlWdy7EPX+v4WGzxkktoNIq2LwrVs11TjdFhYucqEK3uBdB6tn/MLYS9+eZ6dUb9RlfPX2c9y1/jpcm2e+ASaWolQ2MDhHIUIu2vVvrHLQWip54eWbV3mKmEOG0TKwGVKQ9hNQvcuKbVYX3QhVewR9eUPTFcA="
+
 script:
   - sh run_tests.sh
   - sonar-scanner
