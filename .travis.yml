@@ -1,0 +1,22 @@
+dist: xenial
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+branches:
+  only:
+  - master
+  - dev
+  - test
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - sh run_tests.sh
+  - sonar-scanner
+
+
+
