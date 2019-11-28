@@ -17,9 +17,7 @@ install:
 addons:
   sonarcloud:
     organization: "hackydojo"
-    token:
-      secure: "ER4z5ZVOT7sRSdYJxwfnz4Qx3dTAmGAfi0/1B30+46+wjqjvP8hQk+9qq+xoyc22spadmmJA2y0y99kCvFvnBZ1Hcnt1ggdUnS22y/I7xjKUWNjDs96J0D5XLOBmn8D31+iC4SffwuzFX4/KOhmFO5Bbbedi+3n8CS9W1afLU63Yo76pGp6QGh7qf+yiLobJXDfabhaSi9Ywl3Vi9Tqra0j4z5JX9AeJyuDeE4MKP8EUuUZjyAc3w8G+g+9rZJjoiGkUZpfTxLBdzSHTDstjrg8pdiWM8tPMUv69KX894E0cxU9Vv7RaYl3WeRkgcxeUtlzm+IObH6gEZvu3E9JvzMF1NxPL2cAi7IKI5rYwnrgps86TYDcoiBoq4dmmK3HjFPmqbPPdyrrsfGwhp2wGmpP8f0K9o3jBYq1fZxrdAONTsXYEi9IEEoM0bqC6DX+Y54yKdiOy6n0eMF4X7nEkfyBAUgvDQwGmIKM7XT/e4ldJfVqorIJEhCqLX15sBszXzJ9uq8R4/iRSa+b0Vuxsdh68VXAtBqFDL5jXaruHvftoD4JPM3wzlLn/eZi6wutZmvoc6U41Szs1rq62e9hQ24Z+sRaPl2YFWigAoYa/a7D4isUEjmL3i4kQmVp/sTE6WQAqC9s2g+8mi64iuVmOZ/rvDauRRW6z49iBMZOGfZk="
-
+    token: ${SONAR_TOKEN}
 script:
   - sh run_tests.sh
   - sonar-scanner
