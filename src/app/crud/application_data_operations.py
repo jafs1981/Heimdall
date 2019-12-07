@@ -10,7 +10,7 @@ def get_application_by_id(db: Session, application_id: uuid.UUID):
 
 
 # ---------------------------------------------------------------------------------------
-# GET EMPLOYEES
+# POST APPLICATIONS
 # ---------------------------------------------------------------------------------------
 def get_applications(db: Session, skip: int = 0, limit: int = 100, **kwargs):
     query = db.query(models.IsxApplication)
